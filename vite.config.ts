@@ -16,6 +16,13 @@ export default defineConfig((config) => {
     build: {
       target: 'esnext',
     },
+    // ADICIONE ESTE BLOCO INTEIRO
+    server: {
+      allowedHosts: [
+        'bolt-bolt.4gcjjl.easypanel.host',
+        'localhost', 
+      ],
+    },
     plugins: [
       nodePolyfills({
         include: ['buffer', 'process', 'util', 'stream'],
