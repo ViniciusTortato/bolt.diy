@@ -16,13 +16,24 @@ export default defineConfig((config) => {
     build: {
       target: 'esnext',
     },
-    // ADICIONE ESTE BLOCO INTEIRO
+
+    // ===================================================================
+    // INÍCIO DA ALTERAÇÃO - Configuração para Servidores
+    // ===================================================================
     server: {
+      host: true, // Garante que o servidor seja acessível na rede
       allowedHosts: [
-        'bolt-bolt.4gcjjl.easypanel.host',
-        'localhost', 
+        '.easypanel.host' // Permite QUALQUER subdomínio do easypanel
       ],
     },
+    preview: {
+      host: true, // O mesmo para o servidor de produção/preview
+      port: 5173,
+    },
+    // ===================================================================
+    // FIM DA ALTERAÇÃO
+    // ===================================================================
+
     plugins: [
       nodePolyfills({
         include: ['buffer', 'process', 'util', 'stream'],
